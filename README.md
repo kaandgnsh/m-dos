@@ -1,4 +1,4 @@
-### m-dos2
+## m-dos2
 
 Bir Dos Scripti 
 
@@ -25,9 +25,11 @@ Repo'yu indirdikten sonra m-dos.py dosyasını çalıştırın. Ardından tool'u
 Bu kodu seçtiğinizde tool size hangi parametrelerin nasıl kullanacağını gösterecektir. Aynı zamanda da bir örnek çalıştırma kodu da bulunmaktadır. Bu parametreleri şu iki komutla da öğrenebilirsiniz:
 
 ```bash
-python3 m-dos.py -h ```
+python3 m-dos.py -h 
+```
 
 ```bash
-python3 m-dos.py --help```
+python3 m-dos.py --help
+```
 
 #### Sadece Eğitim Amaçlı Kullanınız!!

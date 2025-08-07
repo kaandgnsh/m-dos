@@ -1,8 +1,26 @@
-## m-dos2
+# M-DOS2 | Gelişmiş Python Tabanlı DOS Saldırı Aracı
 
-Bir Dos Scripti 
+Bu proje, eğitim ve test amaçlı geliştirilmiş **çok fonksiyonlu bir DOS (Denial of Service) aracı**dır. Python ile yazılmıştır ve hem **interaktif mod** hem de **komut satırı parametre modu** ile çalışabilir.
 
-## İndirme 
+## Özellikler
+
+✅ UDP / TCP / HTTP Flood saldırıları  
+✅ IP veya Domain hedefleme  
+✅ Çoklu hedef (dosyadan alma)  
+✅ Ping ve HTTP kontrolü  
+✅ Otomatik domain IP çözümleme  
+✅ Loglama ve özelleştirilebilir log dosyası adı  
+✅ Site çökme takibi (HTTP modunda)  
+✅ Saldırı sonrası özet rapor oluşturma  
+✅ Proxy desteği (opsiyonel)  
+✅ Canlı istatistik paneli  
+✅ Renkli terminal çıktısı  
+✅ Kullanıcı dostu interaktif arayüz  
+✅ Komut satırından tüm parametrelerle çalıştırılabilir
+
+---
+
+## Kurulum
 
 ```bash
 git clone https://github.com/morbius-os/m-dos
@@ -14,22 +32,69 @@ cd m-dos
 python3 m-dos.py
 ```
 
+
+> **Not**: `termcolor`, `requests` gibi modüller gereklidir.
+
+---
+
 ## Kullanım
 
-Repo'yu indirdikten sonra m-dos.py dosyasını çalıştırın. Ardından tool'u hangi türde kullanmak istediğinizi (İnteraktif mod veya Parametre modu) seçiniz.
-
-#İnteraktif Mod
-İnteraktif modu seçtikten sonra saldırmak istediğiniz ip adresini yazınız. Eğer hedef bir internet sitesi ise (example.com gibi) ip adresini yazacağınız yere "Domain" yada "domain" yazmanız gerekmektedir. Ardından Domain'in https ya da http protokölünden hangisine sahip olduğunu topla girmeniz gerekmektedir. Ardından hedef portunuzu (isterseniz 0 yazarak tüm portlara da kaldırabilirsiniz) belirlemeniz gerekmektedir. Daha sonrasında Thread sayısını ve sistemin bu saldırıyı bir dosya biçiminde kaydedip kaydetmemesini belirtmeniz gerekmektedir. Daha sonrasında hedefe saldırı tipinizi belirleyerek saldırıyı başlayabilirsiniz.
-
-#Parametre Modu
-Bu kodu seçtiğinizde tool size hangi parametrelerin nasıl kullanacağını gösterecektir. Aynı zamanda da bir örnek çalıştırma kodu da bulunmaktadır. Bu parametreleri şu iki komutla da öğrenebilirsiniz:
+### Interaktif Mod:
 
 ```bash
-python3 m-dos.py -h 
+python3 mdos2.py
 ```
+
+- Hedef IP/domain girin
+- Port seçin
+- Saldırı süresi ve thread sayısını girin
+- Saldırı tipi seçin (UDP, TCP, HTTP)
+- Loglama isteğe bağlı
+
+### Parametre Modu:
 
 ```bash
-python3 m-dos.py --help
+python3 mdos2.py -t hedefler.txt -p 80 --type udp -d 60 -T 8 --log --logfile kayit.txt
 ```
 
-#### Sadece Eğitim Amaçlı Kullanınız!!
+#### Parametre Açıklamaları:
+
+| Parametre     | Açıklama |
+|---------------|----------|
+| `-t` / `--targets` | Hedefleri içeren dosya |
+| `-p` / `--port`    | Port numarası (tüm portlar için 1) |
+| `--type`           | Saldırı tipi (udp / tcp / http) |
+| `-d` / `--duration`| Saldırı süresi (saniye) |
+| `-T` / `--threads` | Thread sayısı |
+| `--log`            | Loglama aktif eder |
+| `--logfile`        | Log dosyasının adı |
+| `--proxy`          | Proxy desteği |
+| `--report`         | Saldırı sonrası rapor oluşturur |
+
+Yardım kılavuzunu görmek için:
+
+```bash
+python3 mdos2.py -h
+```
+
+---
+
+## Örnek Kullanım
+
+```bash
+python3 mdos2.py -t hedefler.txt -p 80 --type http -d 60 -T 10 --log --logfile log.txt --report
+```
+
+---
+
+## Uyarı ⚠️
+
+> Bu araç yalnızca **eğitim ve test** amaçlıdır. Yetkisiz sistemlere saldırı **suçtur** ve **yasal sorumluluk doğurur**. Geliştirici hiçbir sorumluluk kabul etmez.
+
+---
+
+## Geliştirici
+
+**KaanDGN**  
+📷 Instagram: [@morbius.os](https://instagram.com/kaandgn.sh)  
+💻 Github: [github.com/morbius-os](https://github.com/kaandgn-sh)

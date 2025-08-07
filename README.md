@@ -96,5 +96,5 @@ python3 mdos2.py -t hedefler.txt -p 80 --type http -d 60 -T 10 --log --logfile l
 ## Geliştirici
 
 **KaanDGN**  
-📷 Instagram: [@morbius.os](https://instagram.com/kaandgn.sh)  
-💻 Github: [github.com/morbius-os](https://github.com/kaandgn-sh)
+📷 Instagram: [@kaandgn.sh](https://instagram.com/kaandgn.sh)  
+💻 Github: [github.com/kaandgn.sh](https://github.com/kaandgn-sh)

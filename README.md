@@ -97,4 +97,4 @@ python3 mdos2.py -t hedefler.txt -p 80 --type http -d 60 -T 10 --log --logfile l
 
 **KaanDGN**  
 📷 Instagram: [@kaandgn.sh](https://instagram.com/kaandgn.sh)  
-💻 Github: [github.com/kaandgn.sh](https://github.com/kaandgn-sh)
+💻 Github: [github.com/kaandgnsh](https://github.com/kaandgnsh)

@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/KAANDGN-SECURITY%20LAB-151515?style=for-the-badge&logo=linux&logoColor=white" alt="KaanDGN Security Lab">
+  <img src="https://img.shields.io/badge/KAAN%20DO%C4%9EAN-SECURITY%20LAB-151515?style=for-the-badge&logo=linux&logoColor=white" alt="Kaan DOĞAN Security Lab">
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/Dependencies-Standard%20Library-444444?style=for-the-badge" alt="Standard library only">
 </p>
@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/REQUEST%20CAP-60-555555?style=flat-square" alt="Maximum 60 requests">
   <img src="https://img.shields.io/badge/RUNTIME%20CAP-30s-555555?style=flat-square" alt="Maximum 30 seconds">
   <a href="https://github.com/kaandgnsh/m-dos/actions/workflows/tests.yml">
-    <img src="https://github.com/kaandgnsh/m-dos/actions/workflows/tests.yml/badge.svg?branch=security-safe-local-lab" alt="GitHub Actions">
+    <img src="https://github.com/kaandgnsh/m-dos/actions/workflows/tests.yml/badge.svg?branch=main" alt="GitHub Actions">
   </a>
 </p>
 
@@ -26,6 +26,8 @@
 **M-DOS Local Lab** is a small Python learning project for measuring HTTP response times and observing basic behavior from services running on your own machine.
 
 It focuses on practical fundamentals: HTTP, input validation, timing, error handling, testable code, and safe-by-default tooling.
+
+> **Educational use only:** This project is for learning HTTP behavior and measuring response times in a controlled local lab. Run it only against services on your own machine or targets you are explicitly authorized to test. It intentionally does not support remote hosts, traffic flooding, or denial-of-service activity. This notice does not exempt users from applicable laws or service terms.
 
 > **Safety by design:** M-DOS accepts loopback targets only. Remote hosts, flood modes, proxies, port scanning, and concurrent workers are intentionally unsupported.
 
@@ -207,7 +209,7 @@ Please report security concerns privately to the repository owner. Do not publis
 
 ## Author
 
-**KaanDGN** · [GitHub Profile](https://github.com/kaandgnsh)
+**Kaan DOĞAN** · [GitHub Profile](https://github.com/kaandgnsh) · [LinkedIn](https://www.linkedin.com/in/kaan-do%C4%9Fan-911663280/) · [Instagram](https://instagram.com/kaandgn.sh)
 
 <p align="center">
   <sub>Built to learn. Designed with safety in mind.</sub>

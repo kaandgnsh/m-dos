@@ -1,100 +1,70 @@
-# M-DOS2 | Gelişmiş Python Tabanlı DOS Saldırı Aracı
+# M-DOS Local Lab
 
-Bu proje, eğitim ve test amaçlı geliştirilmiş **çok fonksiyonlu bir DOS (Denial of Service) aracı**dır. Python ile yazılmıştır ve hem **interaktif mod** hem de **komut satırı parametre modu** ile çalışabilir.
+A small, bounded HTTP response-time sampler for **local development services**. This repository is being refocused from its original flood-oriented implementation into a safer learning project for Python, HTTP, input validation, and basic performance observation.
 
-## Özellikler
+> **Scope by design:** only `localhost` and loopback IP addresses (`127.0.0.1`, `::1`) are accepted. Remote targets, flood modes, proxies, multiple workers, and port scanning are not supported.
 
-✅ UDP / TCP / HTTP Flood saldırıları  
-✅ IP veya Domain hedefleme  
-✅ Çoklu hedef (dosyadan alma)  
-✅ Ping ve HTTP kontrolü  
-✅ Otomatik domain IP çözümleme  
-✅ Loglama ve özelleştirilebilir log dosyası adı  
-✅ Site çökme takibi (HTTP modunda)  
-✅ Saldırı sonrası özet rapor oluşturma  
-✅ Proxy desteği (opsiyonel)  
-✅ Canlı istatistik paneli  
-✅ Renkli terminal çıktısı  
-✅ Kullanıcı dostu interaktif arayüz  
-✅ Komut satırından tüm parametrelerle çalıştırılabilir
+## Features
 
----
+- Measures HTTP response latency against a local service
+- Records HTTP status codes and request errors
+- Prints a JSON summary with minimum, maximum, and mean latency
+- Uses only the Python standard library
+- Enforces a maximum duration of 30 seconds, a maximum of 60 requests, and a fixed interval of at least 0.5 seconds between requests
+- Includes input-validation unit tests
 
-## Kurulum
+## Requirements
 
-```bash
-git clone https://github.com/morbius-os/m-dos
+- Python 3.10 or newer
+- No third-party packages required
 
-cd m-dos
+## Run a local test service
 
-cd m-dos
-
-python3 m-dos.py
-```
-
-
-> **Not**: `termcolor`, `requests` gibi modüller gereklidir.
-
----
-
-## Kullanım
-
-### Interaktif Mod:
+In one terminal, start Python's built-in HTTP server:
 
 ```bash
-python3 mdos2.py
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
-- Hedef IP/domain girin
-- Port seçin
-- Saldırı süresi ve thread sayısını girin
-- Saldırı tipi seçin (UDP, TCP, HTTP)
-- Loglama isteğe bağlı
-
-### Parametre Modu:
+In another terminal, run the sampler from the repository root:
 
 ```bash
-python3 mdos2.py -t hedefler.txt -p 80 --type udp -d 60 -T 8 --log --logfile kayit.txt
+python m-dos/m-dos.py --url http://127.0.0.1:8000/ --duration 10
 ```
 
-#### Parametre Açıklamaları:
+Use only services you own or are explicitly authorized to test. The program rejects non-loopback hosts and does not follow proxy environment settings.
 
-| Parametre     | Açıklama |
-|---------------|----------|
-| `-t` / `--targets` | Hedefleri içeren dosya |
-| `-p` / `--port`    | Port numarası (tüm portlar için 1) |
-| `--type`           | Saldırı tipi (udp / tcp / http) |
-| `-d` / `--duration`| Saldırı süresi (saniye) |
-| `-T` / `--threads` | Thread sayısı |
-| `--log`            | Loglama aktif eder |
-| `--logfile`        | Log dosyasının adı |
-| `--proxy`          | Proxy desteği |
-| `--report`         | Saldırı sonrası rapor oluşturur |
-
-Yardım kılavuzunu görmek için:
+## Run tests
 
 ```bash
-python3 mdos2.py -h
+python -m unittest discover -s m-dos -p 'test_*.py' -v
 ```
 
----
+## Project structure
 
-## Örnek Kullanım
-
-```bash
-python3 mdos2.py -t hedefler.txt -p 80 --type http -d 60 -T 10 --log --logfile log.txt --report
+```text
+m-dos/
+├── m-dos.py
+└── test_m_dos.py
 ```
 
----
+## Limitations
 
-## Uyarı ⚠️
+This is a learning tool, not a load-testing benchmark or a security scanner. Latency results depend on the local machine, service, and operating system. The tool does not attempt to estimate production capacity and deliberately caps request rate and total work.
 
-> Bu araç yalnızca **eğitim ve test** amaçlıdır. Yetkisiz sistemlere saldırı **suçtur** ve **yasal sorumluluk doğurur**. Geliştirici hiçbir sorumluluk kabul etmez.
+## Roadmap
 
----
+- [x] Restrict targets to loopback addresses
+- [x] Add bounded runtime and request count
+- [x] Remove flood, proxy, and multi-target functionality
+- [x] Add validation tests
+- [ ] Add CI checks for supported Python versions
+- [ ] Add optional CSV export and richer latency percentiles
 
-## Geliştirici
+## Security
 
-**KaanDGN**  
-📷 Instagram: [@kaandgn.sh](https://instagram.com/kaandgn.sh)  
-💻 Github: [github.com/kaandgnsh](https://github.com/kaandgnsh)
+Please report potential security issues privately to the repository owner. Do not use this project to send traffic to systems you do not own or have explicit permission to test.
+
+## Author
+
+**KaanDGN** · [GitHub](https://github.com/kaandgnsh)
